@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>price</th>
+    </tr>
+    <tr th:each="hotel : ${hotels}">
+        <td th:text="${hotel.name}"></td>
+        <td th:text="${hotel.pricePerNight}"></td>
+        <td><a th:href="@{'/delete/' + ${hotel.id}}">delete</a></td>
+        <td><a th:href="@{'/edit/' + ${hotel.id}}">edit</a></td>
+    </tr>
+</table>
+
+<a href="/create">Add</a>
+</body>
+</html>
